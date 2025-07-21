@@ -4,8 +4,9 @@
 
 - [ ] **Google Cloud Project**: Create a project in Google Cloud Console.
 - [ ] **Enable Google Calendar API** for your project.
-- [ ] **Create OAuth2 Credentials** (OAuth Client ID) for server-to-server access (service account or OAuth2 client).
+- [ ] **Create OAuth2 Credentials** (OAuth Client ID or Service Account).
   - Download the `credentials.json` file.
+  - **Do NOT commit this file to git.**
 - [ ] **AlAdhan API**: No API key required (public API).
 
 ### 2. **Calendar Setup**
@@ -22,14 +23,27 @@
 - [ ] **Insert/update events** in Google Calendar using the API.
 - [ ] **Ensure events are timezone-aware** (Karachi for source, Google Calendar will auto-adjust for Matt).
 - [ ] **No notifications or invites** sent to Matt.
+- [ ] **Ensure events are uniquely identified (e.g., using summary + date or custom UID) to prevent duplicates.**
+- [ ] **Verify Matt sees all times correctly in Colorado timezone after sync.**
 
-### 4. **Automation**
+### 4. **Security**
+
+- [ ] **Store all secrets in Vercel Environment Variables** (never in code or git).
+- [ ] **Reference secrets in code using `process.env.YOUR_VAR_NAME`**.
+- [ ] **Restrict OAuth credentials** to your Vercel deployment domains.
+- [ ] **Use least-privilege Google API scopes** (only calendar access).
+- [ ] **Protect manual endpoints** (add secret token or IP allowlist if exposing `/api/sync-prayer-times`).
+- [ ] **Never log secrets or sensitive data**.
+- [ ] **Keep dependencies up to date**.
+- [ ] **Enable Google Cloud monitoring and Vercel analytics** to watch for suspicious activity.
+
+### 5. **Automation**
 
 - [ ] **Set up a scheduler**:
   - Vercel Cron Jobs, GitHub Actions, or a simple OS cron job.
 - [ ] (Optional) **Expose a manual trigger endpoint** (e.g., `/api/sync-prayer-times`).
 
-### 5. **Deployment**
+### 6. **Deployment**
 
 - [ ] **Deploy to Vercel, Render, or any Node.js host**.
 - [ ] **Store credentials securely** (use environment variables or secret files).
@@ -39,10 +53,8 @@
 ## 🔑 API Keys & Credentials Needed
 
 - **Google Calendar API OAuth2 Credentials** (from Google Cloud Console)
-
   - `credentials.json` (or environment variables for client ID/secret)
   - If using a service account, share the calendar with the service account email.
-
 - **AlAdhan API**: No key required.
 
 ---
