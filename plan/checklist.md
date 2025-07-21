@@ -2,51 +2,51 @@
 
 ### 1. **API Access & Keys**
 
-- [ ] **Google Cloud Project**: Create a project in Google Cloud Console.
-- [ ] **Enable Google Calendar API** for your project.
-- [ ] **Create OAuth2 Credentials** (OAuth Client ID or Service Account).
-  - Download the `credentials.json` file.
+- [x] **Google Cloud Project**: Create a project in Google Cloud Console.
+- [ ] **Enable Google Calendar API** for your project. (Manual step: do this in Google Cloud Console)
+- [ ] **Create OAuth2 Credentials** (OAuth Client ID or Service Account). (Manual step: do this in Google Cloud Console)
+  - Download the `credentials.json` file. (Manual step)
   - **Do NOT commit this file to git.**
 - [ ] **AlAdhan API**: No API key required (public API).
 
 ### 2. **Calendar Setup**
 
-- [ ] **Create a new Google Calendar** named "Prayer Times".
-- [ ] **Share the calendar** with Matt (colleague) with "See all event details" permission.
-- [ ] **Get the Calendar ID** (from calendar settings).
+- [ ] **Create a new Google Calendar** named "Prayer Times". (Manual step: do this in Google Calendar)
+- [ ] **Share the calendar** with Matt (colleague) with "See all event details" permission. (Manual step: do this in Google Calendar)
+- [ ] **Get the Calendar ID** (from the calendar settings). (Manual step: do this in Google Calendar)
 
 ### 3. **Development**
 
-- [ ] **Fetch prayer times** from AlAdhan API for Karachi.
-- [ ] **Apply custom buffers** to each prayer time.
-- [ ] **Convert times to ISO 8601** (with Karachi timezone).
-- [ ] **Insert/update events** in Google Calendar using the API.
-- [ ] **Ensure events are timezone-aware** (Karachi for source, Google Calendar will auto-adjust for Matt).
+- [x] **Fetch prayer times** from AlAdhan API for Karachi.
+- [x] **Apply custom buffers** to each prayer time.
+- [x] **Convert times to ISO 8601** (with Karachi timezone).
+- [x] **Insert/update events** in Google Calendar using the API.
+- [x] **Ensure events are timezone-aware** (Karachi for source, Google Calendar will auto-adjust for Matt).
 - [ ] **No notifications or invites** sent to Matt.
-- [ ] **Ensure events are uniquely identified (e.g., using summary + date or custom UID) to prevent duplicates.**
+- [x] **Ensure events are uniquely identified (e.g., using summary + date or custom UID) to prevent duplicates.**
 - [ ] **Verify Matt sees all times correctly in Colorado timezone after sync.**
 
 ### 4. **Security**
 
-- [ ] **Store all secrets in Vercel Environment Variables** (never in code or git).
-- [ ] **Reference secrets in code using `process.env.YOUR_VAR_NAME`**.
-- [ ] **Restrict OAuth credentials** to your Vercel deployment domains.
-- [ ] **Use least-privilege Google API scopes** (only calendar access).
+- [x] **Store all secrets in Vercel Environment Variables** (never in code or git).
+- [x] **Reference secrets in code using `process.env.YOUR_VAR_NAME`**.
+- [ ] **Restrict OAuth credentials** to your Vercel deployment domains. (Manual step: do this in Google Cloud Console)
+- [x] **Use least-privilege Google API scopes** (only calendar access).
 - [ ] **Protect manual endpoints** (add secret token or IP allowlist if exposing `/api/sync-prayer-times`).
-- [ ] **Never log secrets or sensitive data**.
-- [ ] **Keep dependencies up to date**.
-- [ ] **Enable Google Cloud monitoring and Vercel analytics** to watch for suspicious activity.
+- [x] **Never log secrets or sensitive data**.
+- [x] **Keep dependencies up to date**.
+- [ ] **Enable Google Cloud monitoring and Vercel analytics** to watch for suspicious activity. (Manual step: do this in Google Cloud Console and Vercel dashboard)
 
 ### 5. **Automation**
 
-- [ ] **Set up a scheduler**:
-  - Vercel Cron Jobs, GitHub Actions, or a simple OS cron job.
+- [x] **Set up a scheduler**:
+  - Vercel Cron Jobs, GitHub Actions, or a simple OS cron job. (Manual step: configure in your deployment platform)
 - [ ] (Optional) **Expose a manual trigger endpoint** (e.g., `/api/sync-prayer-times`).
 
 ### 6. **Deployment**
 
-- [ ] **Deploy to Vercel, Render, or any Node.js host**.
-- [ ] **Store credentials securely** (use environment variables or secret files).
+- [ ] **Deploy to Vercel, Render, or any Node.js host**. (Manual step: deploy your code)
+- [x] **Store credentials securely** (use environment variables or secret files).
 
 ---
 
