@@ -1,4 +1,3 @@
-const path = require('path');
 const { google } = require('googleapis');
 const config = require('./config');
 
@@ -14,19 +13,22 @@ function getOAuth2Client() {
   );
 }
 
-
 function getServiceAccountClient() {
-  const jsonPath = path.resolve(__dirname, process.env.GOOGLE_SERVICE_ACCOUNT_JSON_PATH);
+  if (!process.env.GOOGLE_SERVICE_ACCOUNT_JSON) {
+    throw new Error('Missing GOOGLE_SERVICE_ACCOUNT_JSON in environment variables');
+  }
+
+  const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
 
   return new google.auth.GoogleAuth({
-    keyFile: jsonPath,
+    credentials,
     scopes: ['https://www.googleapis.com/auth/calendar'],
   });
 }
 
 async function getCalendarClient() {
   let auth;
-  if (process.env.GOOGLE_SERVICE_ACCOUNT_JSON_PATH) {
+  if (process.env.GOOGLE_SERVICE_ACCOUNT_JSON) {
     auth = await getServiceAccountClient().getClient();
   } else {
     auth = getOAuth2Client();
