@@ -22,3 +22,6 @@ Thumbs.db
 # Optional: ignore build output if any
 dist/
 build/ 
+
+service-account.json
+"service-account.json" 
