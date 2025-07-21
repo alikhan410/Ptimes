@@ -23,5 +23,4 @@ Thumbs.db
 dist/
 build/ 
 
-service-account.json
-"service-account.json" 
+sv-account.json
